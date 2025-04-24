@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <div class="icon-container">
+      <div class="colormode">
         <button
           class="icon"
           :class="{ active: colorMode.preference === 'light' }"
@@ -73,7 +73,7 @@
       </div>
 
       <div class="w-full mb-5">
-        <p class="description">Color mode: {{ colorMode.preference }}</p>
+        <p class="text-colormode">Color mode: {{ colorMode.preference }}</p>
       </div>
     </client-only>
   </div>
@@ -101,5 +101,13 @@ const setColorMode = (mode: string) => {
 }
 .icon.active {
   color: var(--color-active); /* Define this variable in your global CSS */
+}
+
+.colormode {
+  margin-top: 22em;
+  size: 10px;
+}
+.drawer-swipe {
+  margin-left: 4em;
 }
 </style>
