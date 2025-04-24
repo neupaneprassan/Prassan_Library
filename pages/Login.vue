@@ -1,93 +1,46 @@
 <template>
-  <div class="container">
-    <h1 class="text-5xl font-semibold">{{ translations[language].welcome }}</h1>
-    <p>{{ translations[language].message }}</p>
-    <button @click="goToLogin" class="btn">
-      {{ translations[language].login }}
-    </button>
-    <button @click="goToSignup" class="btn">
-      {{ translations[language].signup }}
-    </button>
+  <div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+    <!-- Left Section -->
+    <div class="flex flex-col justify-center items-center bg-white p-6">
+      <h1 class="text-3xl font-bold text-red-600 mb-2">Welcome</h1>
+      <p class="text-sm text-gray-600 mb-6">
+        Enter your email to sign up for this app
+      </p>
 
-    <!-- Taalwisselaar onderaan -->
-    <div class="language-switcher">
-      <button @click="changeLanguage('en')">🇬🇧</button>
-      <button @click="changeLanguage('nl')">🇳🇱</button>
-      <button @click="changeLanguage('fr')">🇫🇷</button>
+      <div class="space-y-4 w-full max-w-xs">
+        <button
+          class="w-full bg-black text-white py-2 rounded-full hover:bg-gray-900"
+        >
+          Login in
+        </button>
+        <button
+          class="w-full bg-black text-white py-2 rounded-full hover:bg-gray-900"
+        >
+          Sign up
+        </button>
+      </div>
+
+      <div class="mt-6 text-sm text-blue-600 space-x-4">
+        <a href="#">Engels</a>
+        <a href="#">Dutch</a>
+        <a href="#">French</a>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="hidden md:block relative">
+      <img
+        src="/images/5.jpg"
+        alt="The Lies of the Artists"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute bottom-10 left-10 text-white space-y-2 max-w-xs">
+        <h2 class="text-4xl font-bold leading-tight">
+          The Lies of the Artists
+        </h2>
+        <p class="text-md">Essays on Italian Art, 1450–1750</p>
+        <p class="text-sm font-medium">Ingrid D. Rowland</p>
+      </div>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      language: "en", // Standaardtaal is Engels
-      translations: {
-        en: {
-          welcome: "Welcome",
-          message: "Enter your email to sign up for this app",
-          login: "Log in",
-          signup: "Sign up",
-        },
-        nl: {
-          welcome: "Welkom",
-          message: "Voer je e-mail in om je aan te melden voor deze app",
-          login: "Inloggen",
-          signup: "Registreren",
-        },
-        fr: {
-          welcome: "Bienvenue",
-          message: "Entrez votre e-mail pour vous inscrire à cette application",
-          login: "Se connecter",
-          signup: "S'inscrire",
-        },
-      },
-    };
-  },
-  methods: {
-    goToLogin() {
-      window.location.href = "http://localhost:3000/login";
-    },
-    goToSignup() {
-      window.location.href = "http://localhost:3000/signup";
-    },
-    changeLanguage(lang) {
-      this.language = lang;
-    },
-  },
-};
-</script>
-
-<style>
-.container {
-  text-align: center;
-  margin: 50px auto;
-  max-width: 400px;
-  padding: 20px;
-}
-.btn {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.btn:hover {
-  background-color: #333;
-}
-.language-switcher {
-  margin-top: 20px;
-}
-.language-switcher button {
-  font-size: 20px;
-  margin: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-</style>
